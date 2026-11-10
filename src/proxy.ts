@@ -18,14 +18,17 @@ export function proxy(request: NextRequest) {
 
     // If no token and trying to access protected admin page -> redirect to login
     if (!hasToken && !isLoginPage) {
-      const url = new URL('/admin/login', request.url);
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin/login';
       url.searchParams.set('from', pathname);
       return NextResponse.redirect(url);
     }
 
     // If token exists and trying to access login page -> redirect to dashboard
     if (hasToken && isLoginPage) {
-      return NextResponse.redirect(new URL('/admin/dashboard', request.url));
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin/dashboard';
+      return NextResponse.redirect(url);
     }
   }
 

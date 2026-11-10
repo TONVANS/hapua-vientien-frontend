@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard,
@@ -110,10 +112,13 @@ export function AdminSidebar() {
           className="flex items-center gap-2.5 overflow-hidden group"
         >
           <div className="w-10 h-10 rounded-xl bg-brand-surface p-1 flex items-center justify-center shrink-0 shadow-xs border border-brand-gold/40 ring-2 ring-brand-line-strong/50 group-hover:scale-105 transition-transform overflow-hidden">
-            <img
-              src="/logo/logo.webp"
+            <Image
+              src={getAssetPath('/logo_organization/EDL.webp')}
               alt="HWG 5 Meeting Logo"
-              className="w-full h-full object-contain"
+              width={36}
+              height={32}
+              style={{ width: 'auto', height: 'auto' }}
+              className="max-w-full max-h-full object-contain"
             />
           </div>
           <div

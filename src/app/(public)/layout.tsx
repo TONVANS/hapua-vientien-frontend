@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Header, Footer, ShaderBackground } from '@/components/layout';
 import { SmoothScrollProvider } from '@/components/providers';
@@ -35,7 +36,7 @@ export default function PublicLayout({
         className="fixed inset-0 pointer-events-none -z-40 opacity-40 overflow-hidden will-change-transform transform-gpu"
       >
         <Image
-          src="/images/background.webp"
+          src={getAssetPath('/images/background.webp')}
           alt="Parallax Background"
           fill
           sizes="100vw"

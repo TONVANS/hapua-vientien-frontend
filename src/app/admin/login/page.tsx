@@ -22,6 +22,7 @@ import { toast } from 'sonner';
 import { LoginFormData } from '@/lib/validations';
 import { useAuthStore } from '@/store/useAuthStore';
 import { AdminLoginForm, SessionExpiredNotice } from '@/components/admin/login';
+import { getAssetPath } from '@/lib/utils';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -239,7 +240,7 @@ export default function AdminLoginPage() {
                 <div className="relative inline-block mb-3">
                   <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl bg-brand-surface p-2.5 mx-auto shadow-lg shadow-brand-electric/10 border-2 border-brand-gold/40 ring-4 ring-brand-line-strong/40 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105">
                     <img
-                      src="/logo/logo.webp"
+                      src={getAssetPath('/logo_organization/EDL.webp')}
                       alt="HWG 5 Meeting Logo"
                       className="w-full h-full object-contain"
                     />

@@ -16,6 +16,7 @@ import {
   GraduationCap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getAssetPath } from '@/lib/utils';
 
 interface HeroSectionProps {
   stats: {
@@ -34,7 +35,7 @@ interface TimeLeft {
 }
 
 // Hero artwork from Example.html (Lao heritage skyline + ASEAN Power Grid globe)
-const HERO_BACKGROUND_URL = '/images/hero-background.jpg';
+const HERO_BACKGROUND_URL = getAssetPath('/images/hero-background.jpg');
 
 const TARGET_DATE = new Date('2026-11-25T09:00:00+07:00').getTime();
 
@@ -128,20 +129,22 @@ export function HeroSection({ stats }: HeroSectionProps) {
                 <div className="flex items-center gap-4 sm:gap-6">
                   <div className="relative group cursor-pointer inline-block">
                     <Image
-                      src="/images/hapua_logo.webp"
+                      src={getAssetPath('/images/hapua_logo.webp')}
                       alt="HAPUA - Heads of ASEAN Power Utilities / Authorities"
                       width={220}
                       height={60}
                       priority
-                      className="h-11 sm:h-13 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_16px_rgba(79,209,255,0.35)] transition-transform duration-300 group-hover:scale-[1.02]"
+                      style={{ width: 'auto', height: 'auto' }}
+                      className="h-11 sm:h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_16px_rgba(79,209,255,0.35)] transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
                   <Image
-                    src="/logo_organization/EDL.webp"
+                    src={getAssetPath('/logo_organization/EDL.webp')}
                     alt="Electricité du Laos (EDL) - Host Utility"
-                    width={64}
+                    width={72}
                     height={64}
-                    className="h-11 sm:h-13 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_16px_rgba(232,194,106,0.35)]"
+                    style={{ width: 'auto', height: 'auto' }}
+                    className="h-11 sm:h-12 md:h-14 lg:h-16 w-auto object-contain drop-shadow-[0_4px_16px_rgba(232,194,106,0.35)]"
                   />
                 </div>
 

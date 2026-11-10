@@ -1,11 +1,11 @@
 import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
-// On the client (browser), ALWAYS use relative URL '/api/v1' to mask the backend host and port.
+// On the client (browser), use relative URL '/vientiane/api/v1' for subpath routing.
 // On the server, use INTERNAL_BACKEND_URL to talk directly to the backend.
 const getApiBaseUrl = (): string => {
   if (typeof window !== "undefined") {
-    return process.env.NEXT_PUBLIC_API_URL || "/api/v1";
+    return process.env.NEXT_PUBLIC_API_URL || "/vientiane/api/v1";
   }
   return (
     process.env.INTERNAL_BACKEND_URL ||
@@ -76,9 +76,10 @@ apiClient.interceptors.response.use(
         typeof window !== "undefined" &&
         !window.location.pathname.includes("/admin/login")
       ) {
-        Cookies.remove("hapua_token");
-        Cookies.remove("hapua_user");
-        window.location.href = "/admin/login?error=session_expired";
+        Cookies.remove("hapua_token", { path: "/" });
+        Cookies.remove("hapua_user", { path: "/" });
+        const basePath = window.location.pathname.startsWith("/vientiane") ? "/vientiane" : "";
+        window.location.href = `${basePath}/admin/login?error=session_expired`;
       }
     }
     return Promise.reject(error);

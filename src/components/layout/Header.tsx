@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Calendar, UserCheck, Shield, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getAssetPath } from '@/lib/utils';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,10 +64,14 @@ export function Header() {
           {/* Brand Logo & Title */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-brand-surface p-1 flex items-center justify-center shadow-md shadow-brand-electric/10 border border-brand-gold/40 group-hover:scale-105 transition-transform overflow-hidden">
-              <img
-                src="/logo/logo.webp"
+              <Image
+                src={getAssetPath('/logo_organization/EDL.webp')}
                 alt="HWG 5 Meeting"
-                className="w-full h-full object-contain"
+                width={36}
+                height={32}
+                priority
+                style={{ width: 'auto', height: 'auto' }}
+                className="max-w-full max-h-full object-contain"
               />
             </div>
             <div className="flex flex-col">

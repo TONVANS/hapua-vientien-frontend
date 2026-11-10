@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Globe2,
@@ -31,7 +32,7 @@ export interface OrganizationMember {
   isHostPartner?: boolean;
 }
 
-export const ORGANIZATIONS: OrganizationMember[] = [
+const RAW_ORGANIZATIONS: OrganizationMember[] = [
   {
     id: 'edl',
     code: 'EDL',
@@ -274,6 +275,11 @@ export const ORGANIZATIONS: OrganizationMember[] = [
     highlight: 'Regional Integration & Infrastructure Modernization',
   },
 ];
+
+export const ORGANIZATIONS: OrganizationMember[] = RAW_ORGANIZATIONS.map((org) => ({
+  ...org,
+  logo: getAssetPath(org.logo),
+}));
 
 const CATEGORIES = [
   'All',

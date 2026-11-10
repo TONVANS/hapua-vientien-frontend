@@ -43,8 +43,8 @@ export const useAuthStore = create<AuthState>((set) => ({
           isAuthenticated: true,
         });
       } catch {
-        Cookies.remove("hapua_token");
-        Cookies.remove("hapua_user");
+        Cookies.remove("hapua_token", { path: "/" });
+        Cookies.remove("hapua_user", { path: "/" });
         set({ token: null, user: null, isAuthenticated: false });
       }
     } else if (
@@ -53,8 +53,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       userStr === "undefined" ||
       userStr === "null"
     ) {
-      Cookies.remove("hapua_token");
-      Cookies.remove("hapua_user");
+      Cookies.remove("hapua_token", { path: "/" });
+      Cookies.remove("hapua_user", { path: "/" });
       set({ token: null, user: null, isAuthenticated: false });
     }
   },
@@ -78,11 +78,13 @@ export const useAuthStore = create<AuthState>((set) => ({
       const isHttps = typeof window !== "undefined" && window.location.protocol === "https:";
       Cookies.set("hapua_token", accessToken, {
         expires: 4 / 24,
+        path: "/",
         secure: isHttps,
         sameSite: "lax",
       });
       Cookies.set("hapua_user", JSON.stringify(user), {
         expires: 4 / 24,
+        path: "/",
         secure: isHttps,
         sameSite: "lax",
       });
@@ -111,8 +113,8 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   logout: () => {
-    Cookies.remove("hapua_token");
-    Cookies.remove("hapua_user");
+    Cookies.remove("hapua_token", { path: "/" });
+    Cookies.remove("hapua_user", { path: "/" });
     set({
       token: null,
       user: null,
@@ -120,7 +122,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       error: null,
     });
     if (typeof window !== "undefined") {
-      window.location.href = "/admin/login";
+      const basePath = window.location.pathname.startsWith("/vientiane") ? "/vientiane" : "";
+      window.location.href = `${basePath}/admin/login`;
     }
   },
 

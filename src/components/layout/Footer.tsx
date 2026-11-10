@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getAssetPath } from '@/lib/utils';
 import { Globe, Mail, MapPin, Shield, ExternalLink } from 'lucide-react';
 import { VisitorCounter } from './VisitorCounter';
 
@@ -12,10 +14,13 @@ export function Footer() {
           <div className="md:col-span-5 flex flex-col space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-brand-surface p-1 flex items-center justify-center shadow-xs border border-brand-gold/40 overflow-hidden">
-                <img
-                  src="/logo/logo.webp"
+                <Image
+                  src={getAssetPath('/logo_organization/EDL.webp')}
                   alt="HWG 5 Meeting"
-                  className="w-full h-full object-contain"
+                  width={36}
+                  height={32}
+                  style={{ width: 'auto', height: 'auto' }}
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
               <div>
