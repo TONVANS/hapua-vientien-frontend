@@ -83,7 +83,7 @@ export function PrintQRCodeDialog({ isOpen, onClose, activity }: PrintQRCodeDial
   if (!activity) return null;
 
   // URL for the public check-in page
-  const checkInUrl = `${window.location.origin}/activities/${activity.qrCode || activity.id}`;
+  const checkInUrl = `${window.location.origin}/vientiane/activities/${activity.qrCode || activity.id}`;
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
