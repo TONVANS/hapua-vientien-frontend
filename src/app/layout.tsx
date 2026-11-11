@@ -91,11 +91,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/hapua_logo.webp", type: "image/webp" },
-      { url: "/logo/logo.webp", type: "image/webp" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
-    shortcut: ["/images/hapua_logo.webp"],
-    apple: ["/images/hapua_logo.webp"],
+    shortcut: ["/favicon.ico"],
+    apple: ["/favicon.ico"],
   },
 };
 
