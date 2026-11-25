@@ -25,7 +25,7 @@ export function Header() {
     { label: 'Overview', href: '/' },
     { label: 'Agenda', href: '/agenda' },
     { label: 'Activities', href: '/activities' },
-    { label: 'Galleries', href: 'https://edl-drive.edl.com.la/s/JyS4YniiDjLRYYK/download', external: true },
+    { label: 'Galleries', href: 'https://edl-drive.edl.com.la/s/JyS4YniiDjLRYYK', external: true },
     { label: 'Hotel Guide', href: '/hotels' },
     { label: 'Travel Guide', href: '/travel' },
   ];
@@ -54,11 +54,10 @@ export function Header() {
 
       {/* Main Navigation Bar */}
       <nav
-        className={`w-full transition-all duration-300 ${
-          isScrolled
+        className={`w-full transition-all duration-300 ${isScrolled
             ? 'glass-nav py-3 shadow-sm shadow-brand-electric/5'
             : 'bg-brand-navy/60 backdrop-blur-xl py-4 border-b border-brand-cyan/15'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo & Title */}
@@ -106,11 +105,10 @@ export function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-all relative py-1 ${
-                    isActive
+                  className={`text-sm font-medium transition-all relative py-1 ${isActive
                       ? 'text-brand-icewhite font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-cyan after:rounded-full'
                       : 'text-brand-silver hover:text-brand-cyan'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -175,11 +173,10 @@ export function Header() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      pathname === link.href
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === link.href
                         ? 'bg-brand-chip text-brand-icewhite font-semibold'
                         : 'text-brand-silver hover:bg-brand-surface-2'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>
