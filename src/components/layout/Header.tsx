@@ -25,7 +25,7 @@ export function Header() {
     { label: 'Overview', href: '/' },
     { label: 'Agenda', href: '/agenda' },
     { label: 'Activities', href: '/activities' },
-    { label: 'Galleries', href: 'https://edl-drive.edl.com.la/s/BSCXqM9fz93w6ys', external: true },
+    { label: 'Galleries', href: 'https://edl-drive.edl.com.la/s/JyS4YniiDjLRYYK/download', external: true },
     { label: 'Hotel Guide', href: '/hotels' },
     { label: 'Travel Guide', href: '/travel' },
   ];
